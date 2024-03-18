@@ -71,13 +71,14 @@ void display_task(void *pvParameters) {
                     snprintf(buffer, sizeof(buffer), "Dist: %.2f cm", distance);
                 }
 
-                gfx_draw_string(&disp, 0, 0, 1, buffer);
-                
-                // Desenhar barra de distância
-                int bar_length = (int)((distance / MAX_DISTANCE) * (OLED_WIDTH - 1))*2;
+                gfx_clear_buffer(&disp); // Limpa o buffer do display
+                gfx_draw_string(&disp, 0, 0, 1, buffer); // Escreve a string no buffer
+                int bar_length = (int)((distance / MAX_DISTANCE) * (OLED_WIDTH - 1));
                 gfx_draw_line(&disp, 0, OLED_HEIGHT - 10, bar_length, OLED_HEIGHT - 10);
 
-                gfx_show(&disp);
+                gfx_show(&disp); // Atualiza o display OLED com o conteúdo do buffer
+                
+                // Desenhar barra 
             }
         }
     }
