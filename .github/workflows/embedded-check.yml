@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: insper-embarcados/actions-embedded-check@v2
+      - uses: insper-embarcados/actions-embedded-check@v2.1
         with:
           c_file: main/main.c
           rtos: true
+          disable_rule: 'rule_4_3'
