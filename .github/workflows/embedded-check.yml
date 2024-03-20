@@ -13,3 +13,4 @@ jobs:
           c_file: main/main.c
           rtos: true
           disable_rule: 'rule_4_3'
+
